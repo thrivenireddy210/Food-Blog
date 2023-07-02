@@ -6,15 +6,38 @@ import {
   Image,
   Button,
   Text,
+  CardBody,
   Card,
+  HStack, 
+  ScrollContainer,
+  VStack,
   Stack,
+  CardFooter,
 } from "@chakra-ui/react";
+import {  BsFillArrowLeftCircleFill, BsFillArrowRightCircleFill } from "react-icons/bs";
 import "./App.css";
-
+import { useRef } from 'react';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 const LandingPage = () => {
-  var settings = {
-    dots: true
+ 
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 3
   };
+  const containerRef = useRef(null);
+  const scrollLeft = () => {
+    containerRef.current.scrollBy({ left: -200, behavior: 'smooth' });
+  };
+
+  const scrollRight = () => {
+    containerRef.current.scrollBy({ left: 200, behavior: 'smooth' });
+  };
+
   return (
     <Box>
       <Flex width="1440px" height="804px" bg="#FFF">
@@ -141,7 +164,7 @@ const LandingPage = () => {
         </Box>
       </Flex>
       <Flex
-        width="1440px" // Ensure the box takes up the available width
+        width="1440px" 
         height="467px"
         bg="linear-gradient(90deg, rgba(30, 42, 93, 0.04) 0%, rgba(48, 62, 130, 0.04) 55.51%, rgba(60, 80, 157, 0.04) 100%)"
       >
@@ -152,10 +175,8 @@ const LandingPage = () => {
             width="384px"
             height="468px"
             flexShrink={0}
-            // mr={180}
           />
         </Box>
-        {/* <Box flex={1} > */}
         <Box
           flex={1}
           justifyContent="center"
@@ -218,18 +239,18 @@ const LandingPage = () => {
           </Button>
         </Box>
       </Flex>
-      <Box
-        mt={8}
-        bg="#FFF"
-        width="1440px"
-        height="995px"
-        flexShrink={0}
-        display="flex"
-        // p={4}
-      >
-        
-        <Flex direction="column" flex={1}>
-          <Text
+    
+     <div
+  style={{
+    backgroundColor: '#FFF',
+    width: '1440px',
+    height: '995px',
+    flexShrink: 0,
+    
+    
+  }}
+>
+            <Text
             display="flex"
             width="461px"
             height="84px"
@@ -243,19 +264,14 @@ const LandingPage = () => {
             lineHeight="42px"
             letterSpacing="2.24px"
             mx="120px"
-            mt="80px"
+            mt="100px"
           >
             Latest Articles
           </Text>
-
-          <Stack
-            direction={{ base: "row", md: "row" }}
-            spacing={34}
-            // mt={8}
-            ml={20}
-            alignItems="center"
-            justifyContent="center"
-          >
+        
+     
+  <Slider {...settings} style={{ marginTop: '110px' }}>
+          
             <Card
               maxW="381px"
               height="554px"
@@ -266,6 +282,7 @@ const LandingPage = () => {
               flexDirection="column"
               alignItems="center"
               justifyContent="space-between"
+              ml='100px'
               // p={6}
             >
               <Image
@@ -276,6 +293,7 @@ const LandingPage = () => {
                 borderRadius="21px"
                 objectFit="cover"
                 my="20px"
+                mx="auto"
               />
 
               <Stack spacing="3" mb="25px">
@@ -335,6 +353,7 @@ const LandingPage = () => {
               flexDirection="column"
               alignItems="center"
               justifyContent="space-between"
+              ml='50px'
               // p={6}
             >
               <Image
@@ -345,6 +364,7 @@ const LandingPage = () => {
                 borderRadius="21px"
                 objectFit="cover"
                 my="20px"
+                mx="auto"
               />
 
               <Stack spacing="3" mb="25px">
@@ -414,6 +434,7 @@ const LandingPage = () => {
                 borderRadius="21px"
                 objectFit="cover"
                 my="20px"
+                mx="auto"
               />
 
               <Stack spacing="3" mb="25px">
@@ -463,10 +484,223 @@ const LandingPage = () => {
                 </Button>
               </Stack>
             </Card>
-          </Stack>
-        </Flex>
-      </Box>
-      <Flex direction={{ base: "column", md: "row" }} mt={8}>
+            <Card
+              maxW="381px"
+              height="554px"
+              borderRadius="20.937px"
+              border="1.37px solid rgba(147, 162, 211, 0.38)"
+              background="#FFF"
+              display="flex"
+              flexDirection="column"
+              alignItems="center"
+              justifyContent="space-between"
+              ml='100px'
+              // p={6}
+            >
+              <Image
+                src="/grilled-tomatoes-1-846x846 1 (1).png"
+                alt="Green double couch with wooden legs"
+                width="326px"
+                height="257px"
+                borderRadius="21px"
+                objectFit="cover"
+                my="20px"
+                mx="auto"
+              />
+
+              <Stack spacing="3" mb="25px">
+                <Heading
+                  size="md"
+                  color="var(--primary, #0E2368)"
+                  fontSize="21px"
+                  fontFamily="Poppins"
+                  fontStyle="normal"
+                  fontWeight={700}
+                  lineHeight="27px"
+                  mx="25px"
+                >
+                How To Grill Corn
+                </Heading>
+                <Text
+                  color="var(--body, #444957)"
+                  fontSize="15px"
+                  fontFamily="Open Sans"
+                  fontStyle="normal"
+                  fontWeight={400}
+                  lineHeight="27px"
+                  letterSpacing="-0.3px"
+                  mx="25px"
+                >
+                  This sofa is perfect for modern tropical spaces, baroque
+                  inspired spaces, earthy toned spaces and for people who love a
+                  chic design with a sprinkle of vintage design.
+                </Text>
+                <Button
+                  variant="outline"
+                  mt={4}
+                  rounded="full"
+                  display="flex"
+                  width="131px"
+                  height="42px"
+                  padding="3px 26px"
+                  justifyContent="center"
+                  alignItems="center"
+                  gap={10}
+                  flexShrink={0}
+                  borderRadius="21px"
+                  mx="25px"
+                  border="1px solid #424961"
+                >
+                  Read More
+                </Button>
+              </Stack>
+            </Card>
+            <Card
+              maxW="381px"
+              height="554px"
+              borderRadius="20.937px"
+              border="1.37px solid rgba(147, 162, 211, 0.38)"
+              background="#FFF"
+              display="flex"
+              flexDirection="column"
+              alignItems="center"
+              justifyContent="center" 
+              ml='50px'
+              // p={6}
+            >
+              <Image
+                src="/meal-prep-ideas-846x846 1 (2).png"
+                alt="Green double couch with wooden legs"
+                width="326px"
+                height="257px"
+                borderRadius="21px"
+                objectFit="cover"
+                my="20px"
+                mx="auto"
+              />
+
+              <Stack spacing="3" mb="25px">
+                <Heading
+                  size="md"
+                  color="var(--primary, #0E2368)"
+                  fontSize="21px"
+                  fontFamily="Poppins"
+                  fontStyle="normal"
+                  fontWeight={700}
+                  lineHeight="27px"
+                  mx="25px"
+                >
+                 Crunchwrap Supreme
+                </Heading>
+                <Text
+                  color="var(--body, #444957)"
+                  fontSize="15px"
+                  fontFamily="Open Sans"
+                  fontStyle="normal"
+                  fontWeight={400}
+                  lineHeight="27px"
+                  letterSpacing="-0.3px"
+                  mx="25px"
+                >
+                  This sofa is perfect for modern tropical spaces, baroque
+                  inspired spaces, earthy toned spaces and for people who love a
+                  chic design with a sprinkle of vintage design.
+                </Text>
+                <Button
+                  variant="outline"
+                  mt={4}
+                  rounded="full"
+                  display="flex"
+                  width="131px"
+                  height="42px"
+                  padding="3px 26px"
+                  justifyContent="center"
+                  alignItems="center"
+                  gap={10}
+                  flexShrink={0}
+                  borderRadius="21px"
+                  mx="25px"
+                  border="1px solid #424961"
+                >
+                  Read More
+                </Button>
+              </Stack>
+            </Card>
+            <Card
+              maxW="381px"
+              height="554px"
+              borderRadius="20.937px"
+              border="1.37px solid rgba(147, 162, 211, 0.38)"
+              background="#FFF"
+              display="flex"
+              flexDirection="column"
+              alignItems="center"
+              justifyContent="space-between"
+              // p={6}
+            >
+              <Image
+                src="/meal-prep-ideas-846x846 1 (3).png"
+                alt="Green double couch with wooden legs"
+                width="326px"
+                height="257px"
+                borderRadius="21px"
+                objectFit="cover"
+                my="20px"
+                mx="auto"
+              />
+
+              <Stack spacing="3" mb="25px">
+                <Heading
+                  size="md"
+                  color="var(--primary, #0E2368)"
+                  fontSize="21px"
+                  fontFamily="Poppins"
+                  fontStyle="normal"
+                  fontWeight={700}
+                  lineHeight="27px"
+                  mx="25px"
+                >
+Broccoli Cheese Soup
+                </Heading>
+                <Text
+                  color="var(--body, #444957)"
+                  fontSize="15px"
+                  fontFamily="Open Sans"
+                  fontStyle="normal"
+                  fontWeight={400}
+                  lineHeight="27px"
+                  letterSpacing="-0.3px"
+                  mx="25px"
+                >
+                  This sofa is perfect for modern tropical spaces, baroque
+                  inspired spaces, earthy toned spaces and for people who love a
+                  chic design with a sprinkle of vintage design.
+                </Text>
+                <Button
+                  variant="outline"
+                  mt={4}
+                  rounded="full"
+                  display="flex"
+                  width="131px"
+                  height="42px"
+                  padding="3px 26px"
+                  justifyContent="center"
+                  alignItems="center"
+                  gap={10}
+                  flexShrink={0}
+                  borderRadius="21px"
+                  mx="25px"
+                  border="1px solid #424961"
+                >
+                  Read More
+                </Button>
+              </Stack>
+            </Card>
+           
+            </Slider>
+            </div>
+          
+      <Flex direction={{ base: "column", md: "row" }}>
         <Box
           width="1440px"
           height="362px"
