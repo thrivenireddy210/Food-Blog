@@ -25,7 +25,6 @@ const LandingPage = () => {
     slidesToShow: 3,
     slidesToScroll: 3
   };
-  const containerRef = useRef(null);
  
 
   return (
