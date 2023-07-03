@@ -6,15 +6,11 @@ import {
   Image,
   Button,
   Text,
-  CardBody,
+ 
   Card,
-  HStack, 
-  ScrollContainer,
-  VStack,
+ 
   Stack,
-  CardFooter,
 } from "@chakra-ui/react";
-import {  BsFillArrowLeftCircleFill, BsFillArrowRightCircleFill } from "react-icons/bs";
 import "./App.css";
 import { useRef } from 'react';
 import "slick-carousel/slick/slick.css";
@@ -30,13 +26,7 @@ const LandingPage = () => {
     slidesToScroll: 3
   };
   const containerRef = useRef(null);
-  const scrollLeft = () => {
-    containerRef.current.scrollBy({ left: -200, behavior: 'smooth' });
-  };
-
-  const scrollRight = () => {
-    containerRef.current.scrollBy({ left: 200, behavior: 'smooth' });
-  };
+ 
 
   return (
     <Box>
