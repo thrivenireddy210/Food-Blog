@@ -12,7 +12,6 @@ import {
   Stack,
 } from "@chakra-ui/react";
 import "./App.css";
-import { useRef } from 'react';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
